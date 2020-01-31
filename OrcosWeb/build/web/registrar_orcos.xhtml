@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="index.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="contenido">
+        <p:growl id="mensajeGrowl" showDetail="true" showSummary="true"/>
+        <p:panel header="Ingresar Guerrero">
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Nombre"/>
+                <p:inputText value="#{registrarGuerreroManagedBean.nombre}"
+                             required="true"
+                             requiredMessage="Debe Ingresar un nombre"/>
+                
+                <h:outputLabel value="Tipo"/>
+                <p:selectOneMenu value="#{registrarGuerreroManagedBean.tipo}">
+                    <f:selectItem itemLabel="Orco" itemValue="Orco" />
+                    <f:selectItem itemLabel="Uruk" itemValue="Uruk" />
+                </p:selectOneMenu>
+                
+                <h:outputLabel value="Nivel"/>
+                <p:inputNumber maxValue="100"
+                               value="#{registrarGuerreroManagedBean.nivel}"
+                               minValue="0"
+                               required="true"
+                               requiredMessage="Debe ingresar un nivel"
+                               validatorMessage="El nivel debe ser entre 1 y 100"/>
+                
+                <h:outputLabel value="Rango"/>
+                <p:selectOneMenu value="#{registrarGuerreroManagedBean.rangoSeleccionado}">
+                    <f:selectItems value="#{registrarGuerreroManagedBean.rangos}"
+                                   var="rango"
+                                   itemLabel="#{rango.nombre}"
+                                   itemValue="#{rango.id}"/>
+                </p:selectOneMenu>
+                <p:commandButton value="Registrar Guerrero" 
+                                 actionListener="#{registrarGuerreroManagedBean.crearGuerrero}"
+                                 update="mensajeGrowl"/>
+            </h:panelGrid>
+        </p:panel>
+    </ui:define>
+</ui:composition>
