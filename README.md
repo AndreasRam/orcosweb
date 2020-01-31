@@ -1,2 +1,2 @@
 # orcosweb
-Ejercicio jsf - Primefaces -jpa
+Ejercicio jsf - Primefaces - jpa
