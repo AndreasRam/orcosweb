@@ -28,7 +28,7 @@ public class Guerrero implements Serializable{
     private int nivel;
     private String tipo;
     @JoinColumn(name = "rango_id", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Rango rango;
 
     public long getId() {

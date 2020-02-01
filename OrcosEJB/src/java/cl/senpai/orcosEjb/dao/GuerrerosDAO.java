@@ -57,5 +57,20 @@ public class GuerrerosDAO implements GuerrerosDAOLocal {
         
     }
 
+    @Override
+    public void update(Guerrero g) {
+    
+        EntityManager em = emf.createEntityManager();
+        try {
+            em.merge(g);
+            em.flush();
+        } catch (Exception e) {
+        
+        }finally{
+            
+        }
+        
+    }
+
     
 }

@@ -8,6 +8,10 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <ui:define name="contenido">        
+        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="pi pi-times" />
+        </p:confirmDialog>    
         <p:panel id="ContenedorTabla" header="Tropas Existentes">
             <p:growl showSummary="true"/>
             <p:dataTable value="#{verGuerrerosManagedBean.guerreros}" var="guerreros"
@@ -25,9 +29,16 @@
                     <h:outputText value="#{guerreros.rango.nombre}"/> 
                 </p:column>            
                 <p:column headerText="Acciones">
-                    <p:commandLink value="Asesinado por la aparicion" 
-                                   update=":formulario:ContenedorTabla"
-                                   actionListener="#{verGuerrerosManagedBean.eliminarGuerrero(guerreros)}"/>
+                    <p:panelGrid columns="2">
+                        <p:commandLink value="Editar"
+                                       actionListener="#{verGuerrerosManagedBean.editarGuerrero(guerreros)}"
+                                       />
+                        <p:commandLink value="Asesinado por la aparicion" 
+                                       update=":formulario:ContenedorTabla"
+                                       actionListener="#{verGuerrerosManagedBean.eliminarGuerrero(guerreros)}">
+                            <p:confirm header="¿Confirmar muerte?" message='¿Eliminar Guerrero?'/>
+                        </p:commandLink>
+                    </p:panelGrid>
                 </p:column>
             </p:dataTable>
         </p:panel>

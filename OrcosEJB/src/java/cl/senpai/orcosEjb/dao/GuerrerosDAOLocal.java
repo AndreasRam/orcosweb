@@ -12,5 +12,5 @@ public interface GuerrerosDAOLocal {
     public List<Guerrero> findAll();
     public Guerrero add(Guerrero g);
     public void delete(long id);
-    
+    public void update(Guerrero g);
 }
