@@ -9,5 +9,5 @@ public interface UsuariosDAOLocal {
     
     public void add(Usuario u);
     public List<Usuario> findAll();
-    
+    public Usuario findByCorreoYClave(String correo, String clave);
 }

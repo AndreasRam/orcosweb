@@ -22,3 +22,24 @@
     margin-top: 1rem;
     text-align: center;
 }
+
+.contenedor-login{
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+.contenedor-paneles-header{
+    overflow: hidden;
+}
+
+.panel-header-izquierda{
+    width: 40%;
+    float: left;    
+}
+
+.panel-header-derecha{
+    width: 30%;
+    float: right;
+    padding: 20px;
+}

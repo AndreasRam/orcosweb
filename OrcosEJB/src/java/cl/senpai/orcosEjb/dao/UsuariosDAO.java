@@ -40,4 +40,21 @@ public class UsuariosDAO implements UsuariosDAOLocal {
         
     }
 
+    @Override
+    public Usuario findByCorreoYClave(String correo, String clave) {
+        
+        EntityManager em = emf.createEntityManager();
+        try {
+            return em.createNamedQuery("Usuario.findByCorreoYClave", Usuario.class)
+                    .setParameter("correo", correo)
+                    .setParameter("clave", clave)
+                    .getSingleResult();
+        } catch (Exception e) {
+            return null;
+        }finally{
+            
+        }
+        
+    }
+    
 }

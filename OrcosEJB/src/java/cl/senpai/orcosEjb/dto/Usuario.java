@@ -13,7 +13,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "usuarios")
 @NamedQueries({
-    @NamedQuery(name = "Usuario.findAll", query = "SELECT u from Usuario u")
+    @NamedQuery(name = "Usuario.findAll", query = "SELECT u from Usuario u"),
+    @NamedQuery(name = "Usuario.findByCorreoYClave", query = "SELECT u FROM Usuario u WHERE u.correo = :correo AND u.clave = :clave")
 })
 public class Usuario implements Serializable{
     

@@ -4,16 +4,23 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:p="http://primefaces.org/ui">
-<header>
-    <h:panelGrid columns="2">
-        <p:graphicImage styleClass="logo" library="img" name="anillo.png"></p:graphicImage>
-        <h1>Uno para dominarlos a todos</h1>
-    </h:panelGrid>
-    <p:menubar>
-        <p:menuitem  url="admin_rangos.xhtml" value="Registro Rangos"/>
-        <p:menuitem  url="registrar_orcos.xhtml" value="Registro Guerrero"/>
-        <p:menuitem  url="ver_tropas.xhtml" value="Ver Tropas"/>
-        <p:menuitem url="registrar_usuario.xhtml" value="Registrar Usuario"/>
-    </p:menubar>
-</header>
+    <header>
+        <h:panelGroup styleClass="contenedor-paneles-header" layout="block">
+            <h:panelGrid styleClass="panel-header-izquierda" columns="2">
+                <p:graphicImage styleClass="logo" library="img" name="anillo.png"></p:graphicImage>
+                <h1>Uno para dominarlos a todos</h1>
+            </h:panelGrid>
+            <h:panelGrid styleClass="panel-header-derecha" columns="1">
+                <p:outputLabel value="Bienvenido #{loginManagedBean.usuarioLogeado.nombre}"/>
+                <p:commandLink value="Cerrar Sesion" actionListener="#{loginManagedBean.cerrarSesion}" immediate="true"/>
+            </h:panelGrid>
+        </h:panelGroup>
+        
+        <p:menubar>
+            <p:menuitem  url="admin_rangos.xhtml" value="Registro Rangos"/>
+            <p:menuitem  url="registrar_orcos.xhtml" value="Registro Guerrero"/>
+            <p:menuitem  url="ver_tropas.xhtml" value="Ver Tropas"/>
+            <p:menuitem url="registrar_usuario.xhtml" value="Registrar Usuario"/>
+        </p:menubar>
+    </header>
 </ui:composition>
