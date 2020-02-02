@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="index.xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="contenido">
+        <p:panel header="Registrar Usuario">
+            
+            <p:messages>
+                <p:autoUpdate/>
+            </p:messages>
+            
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Nombre"/>
+                <p:inputText value="#{registrarUsuarioManagedBean.nombre}" required="true" requiredMessage="Debe ingresar nombre"/>
+                
+                <p:outputLabel value="Correo"/>
+                <p:inputText value="#{registrarUsuarioManagedBean.correo}" required="true" requiredMessage="Debe ingresar un correo"/>
+                
+                <p:outputLabel value="Contraseña"/>
+                <p:password value="#{registrarUsuarioManagedBean.clave}" id="password1" match="password2" feedback="true" goodLabel="Bueno" strongLabel="Fuerte" weakLabel="Debil" promptLabel="Ingrese una contraseña" required="true" requiredMessage="Debe ingresar una contraseña"/>  
+                <p:outputLabel value="Repita Contraseña"/>                                             
+                <p:password value="#{registrarUsuarioManagedBean.clave}" id="password2" required="true" requiredMessage="Debe ingresar una confirmacion"/> 
+                
+                <p:commandButton value="Guardar" actionListener="#{registrarUsuarioManagedBean.registrar}"/>
+            </p:panelGrid>
+        </p:panel>
+    </ui:define>
+</ui:composition>
