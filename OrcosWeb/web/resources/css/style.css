@@ -24,9 +24,15 @@
 }
 
 .contenedor-login{
-    width: 40%;
+    max-width: 400px;
     margin: 0 auto;
     margin-top: 10%;
+}
+
+@media (max-width: 550px){
+    .contenedor-login{
+        max-width: 90%;
+    }
 }
 
 .contenedor-paneles-header{
@@ -42,4 +48,27 @@
     width: 30%;
     float: right;
     padding: 20px;
+}
+
+.panel-faltan-rangos{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;;
+    padding: 15px; 
+}
+
+.panel-faltan-rangos a{   
+    text-decoration: none;
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    background: black;
+}
+
+.panel-faltan-rangos a:hover{   
+    background: #343434;
 }

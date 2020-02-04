@@ -7,26 +7,31 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Inicio de Sesion</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <h:outputStylesheet library="css" name="style.css"/>
     </h:head>
     <h:body>
-        <h:form id="formulario">
-            
-            <p:growl id="mensajeGrowl" showDetail="true" showSummary="true" sticky="true"/>                
-            
-            <p:panel styleClass="contenedor-login" header="Bienvenido">
-                <p:panelGrid columns="2">
-                    <p:outputLabel value="Usuario"/>
-                    <p:inputText value="#{loginManagedBean.usuario}" placeholder="Ingrese usuario"/>
-                    
-                    <p:outputLabel value="Contraseña"/>
-                    <p:password value="#{loginManagedBean.clave}" placeholder="Ingrese Contraseña"/>
-                    
-                    <p:commandButton value="Ingresar" 
-                                     update="mensajeGrowl"
-                                     actionListener="#{loginManagedBean.iniciarSesion}"/>
-                </p:panelGrid>
-            </p:panel>
-        </h:form>
+        <div class="ui-fluid">
+            <h:form id="formulario">
+
+                <p:growl id="mensajeGrowl" showDetail="true" showSummary="true" sticky="true"/>                
+
+                <div class="ui-fluid">
+                    <p:panel styleClass="contenedor-login" header="Bienvenido">
+                        <p:panelGrid columns="2" styleClass="ui-noborder">
+                            <p:outputLabel value="Usuario"/>
+                            <p:inputText value="#{loginManagedBean.usuario}" placeholder="Ingrese usuario"/>
+
+                            <p:outputLabel value="Contraseña"/>
+                            <p:password  value="#{loginManagedBean.clave}" placeholder="Ingrese Contraseña"/>
+
+                            <p:commandButton value="Ingresar" 
+                                             update="mensajeGrowl"
+                                             actionListener="#{loginManagedBean.iniciarSesion}"/>
+                        </p:panelGrid>
+                    </p:panel>
+                </div>
+            </h:form>
+        </div>
     </h:body>
 </html>

@@ -8,30 +8,32 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <ui:define name="contenido">
-        <p:panel header="Administracion de Rangos" styleClass="panel-principal">            
-            <p:panelGrid layout="grid" columns="2" styleClass="ui-noborder paneles">
-                <p:panel header="Registrar Rango">
-                    <p:messages>
-                        <p:autoUpdate/>
-                    </p:messages>
-                    <h:panelGrid columns="2">
-                        <h:outputText value="Nombre Rango"/>
-                        <p:inputText value="#{rangosManagedBean.nombreRango}"
-                                     required="true"
-                                     requiredMessage="Debe ingresar un nombre"/>
-                        <p:commandButton value="Registrar" 
-                                         update="lista_rangos"
-                                         actionListener="#{rangosManagedBean.registrar}"/>
-                    </h:panelGrid>
-                </p:panel>
+        <div class="ui-fluid">
+            <p:panel header="Administracion de Rangos" styleClass="panel-principal">            
+                <p:panelGrid layout="grid" columns="2" columnClasses="ui-g-12 ui-md-6,ui-g-12 ui-md-6" styleClass="ui-noborder ui-fluid paneles">
+                    <p:panel header="Registrar Rango">
+                        <p:messages>
+                            <p:autoUpdate/>
+                        </p:messages>
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Nombre Rango"/>
+                            <p:inputText value="#{rangosManagedBean.nombreRango}"
+                                         required="true"
+                                         requiredMessage="Debe ingresar un nombre"/>
+                            <p:commandButton value="Registrar" 
+                                             update="lista_rangos"
+                                             actionListener="#{rangosManagedBean.registrar}"/>
+                        </h:panelGrid>
+                    </p:panel>
 
-                <p:dataList id="lista_rangos" value="#{rangosManagedBean.rangos}" var="rango" type="ordered" emptyMessage="No se encuentran rangos registrados">
-                    <f:facet name="header">
-                        Rangos Existentes
-                    </f:facet>
-                    #{rango.nombre}             
-                </p:dataList>
-            </p:panelGrid>
-        </p:panel>
+                    <p:dataList id="lista_rangos" value="#{rangosManagedBean.rangos}" var="rango" type="ordered" emptyMessage="No se encuentran rangos registrados">
+                        <f:facet name="header">
+                            Rangos Existentes
+                        </f:facet>
+                        #{rango.nombre}             
+                    </p:dataList>
+                </p:panelGrid>
+            </p:panel>
+        </div>
     </ui:define>
 </ui:composition>
